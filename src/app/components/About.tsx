@@ -1,8 +1,7 @@
 "use client";
 
 import React from "react";
-import { Box, Typography, Container, Button } from "@mui/material";
-
+import { Box, Typography, Container } from "@mui/material";
 import { motion } from "framer-motion";
 
 export default function AboutUs() {
@@ -13,10 +12,11 @@ export default function AboutUs() {
         position: "relative",
         overflow: "hidden",
         py: { xs: 10, md: 16 },
-        backgroundImage: `url('/images/about.png')`,
+        backgroundColor: "#ECF4E8",
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundAttachment: "fixed",
+
         "&::before": {
           content: '""',
           position: "absolute",
@@ -24,10 +24,11 @@ export default function AboutUs() {
           backgroundColor: "rgba(255, 255, 255, 0.75)",
           zIndex: 0,
         },
+
         zIndex: 1,
       }}
     >
-      {/* Decorative light gradients */}
+      {/* Decorative gradients */}
       <Box
         sx={{
           position: "absolute",
@@ -40,6 +41,7 @@ export default function AboutUs() {
           zIndex: 0,
         }}
       />
+
       <Box
         sx={{
           position: "absolute",
@@ -71,12 +73,13 @@ export default function AboutUs() {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
+            {/* MAIN HEADING */}
             <Typography
               variant="h3"
               sx={{
-                fontWeight: 800,
+                fontFamily: "Clash Display, sans-serif",
+                fontWeight: 700,
                 mb: 2,
-                fontFamily: "'Poppins', sans-serif",
                 letterSpacing: "-0.5px",
                 background: "linear-gradient(135deg, #1e3a8a, #1d4ed8)",
                 backgroundClip: "text",
@@ -86,13 +89,14 @@ export default function AboutUs() {
               About Us
             </Typography>
 
+            {/* SUB-HEADING */}
             <Typography
               variant="h5"
               sx={{
-                fontWeight: 700,
+                fontFamily: "Clash Display, sans-serif",
+                fontWeight: 600,
                 mb: 3,
                 color: "#1e3a8a",
-                fontFamily: "'Poppins', sans-serif",
                 position: "relative",
                 display: "inline-block",
                 "&::after": {
@@ -113,14 +117,15 @@ export default function AboutUs() {
               ITONUS TECH PVT LTD
             </Typography>
 
+            {/* PARAGRAPH 1 */}
             <Typography
               variant="body1"
               sx={{
+                fontFamily: "Satoshi, sans-serif",
                 color: "#334155",
                 lineHeight: 1.9,
-                fontSize: "1.08rem",
+                fontSize: "1.1rem",
                 mb: 2,
-                fontFamily: "'Inter', sans-serif",
               }}
             >
               <strong style={{ color: "#0f172a" }}>ITONUS TECH PVT LTD</strong>{" "}
@@ -135,33 +140,35 @@ export default function AboutUs() {
               education, healthcare, and marine infrastructure sectors.
             </Typography>
 
+            {/* PARAGRAPH 2 */}
             <Typography
               variant="body1"
               sx={{
+                fontFamily: "Satoshi, sans-serif",
                 color: "#334155",
                 lineHeight: 1.9,
-                fontSize: "1.08rem",
+                fontSize: "1.1rem",
                 mb: 2,
-                fontFamily: "'Inter', sans-serif",
               }}
             >
               In Singapore,{" "}
               <strong style={{ color: "#0f172a" }}>
                 MOSSAD SERVICES PTE LTD
               </strong>{" "}
-              has earned a strong reputation as a trusted provider of Enterprise
-              IT Network and Infrastructure Solutions, along with comprehensive
-              IT manpower services for global enterprises.
+              has earned a strong reputation as a trusted provider of enterprise
+              IT network and infrastructure solutions, along with comprehensive
+              manpower services for global enterprises.
             </Typography>
 
+            {/* PARAGRAPH 3 */}
             <Typography
               variant="body1"
               sx={{
+                fontFamily: "Satoshi, sans-serif",
                 color: "#334155",
                 lineHeight: 1.9,
-                fontSize: "1.08rem",
+                fontSize: "1.1rem",
                 mb: 4,
-                fontFamily: "'Inter', sans-serif",
               }}
             >
               With our expansion into India through{" "}
@@ -169,14 +176,8 @@ export default function AboutUs() {
               we bring a legacy of innovation, reliability, and excellence —
               empowering businesses with world-class technology solutions.
             </Typography>
-
-            <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}>
-            
-            </motion.div>
           </motion.div>
         </Box>
-
-       
       </Container>
     </Box>
   );

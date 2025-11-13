@@ -234,26 +234,31 @@ const Footer: React.FC = () => {
             </Typography>
             <Stack spacing={1}>
               {[
-                {
-                  name: "Cloud Integration Services",
-                  link: "/services/cloud-integration",
-                },
-                {
-                  name: "Cybersecurity Solutions",
-                  link: "/services/cybersecurity",
-                },
-                {
-                  name: "Managed IT Services",
-                  link: "/services/managed-it",
-                },
-                {
-                  name: "Hardware & Software Procurement",
-                  link: "/services/procurement",
-                },
-                {
-                  name: "IoT & Smart Device Integration",
-                  link: "/services/iot-integration",
-                },
+             {
+  name: "Audio Visual Systems & Conferencing",
+  link: "/others/AudioVisualSystems",
+},
+{
+  name: "Security Access Systems",
+  link: "/others/securityaccesssystems",
+},
+{
+  name: "Security Surveillance Systems (CCTV)",
+  link: "/others/cctv",
+},
+{
+  name: "Strategic IT Outsourcing",
+  link: "/others/outsourcing",
+},
+{
+  name: "Mobile Callback, Sunpage and VoIP Calls",
+  link: "/others/mobilecallback-sunpage&voipcalls",
+},
+{
+  name: "Telecommunication Peripherals",
+  link: "/others/telecommunicationperipherals",
+},
+
               ].map(({ name, link }) => (
                 <Link
                   key={name}

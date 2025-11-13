@@ -155,7 +155,7 @@ const services: ServiceGroup[] = [
         description: "Immersive collaboration solutions",
         fullDescription: "State-of-the-art audio visual and conferencing solutions for modern workplaces.",
         features: ["Video Conferencing", "Digital Signage", "Audio Systems", "Control Systems"],
-        path: "/enterprise/networkequipment"
+        path: "/others/AudioVisualSystems"
       },
       { 
         name: "Security Access Systems", 
@@ -163,7 +163,7 @@ const services: ServiceGroup[] = [
         description: "Advanced access control",
         fullDescription: "Comprehensive access control systems to secure your premises and assets.",
         features: ["Card Readers", "Biometrics", "Visitor Management", "Integration"],
-        path: "/enterprise/networkequipment"
+        path: "/others/securityaccesssystems"
         
       },
       { 
@@ -172,7 +172,7 @@ const services: ServiceGroup[] = [
         description: "24/7 monitoring solutions",
         fullDescription: "Advanced CCTV surveillance systems with intelligent monitoring capabilities.",
         features: ["IP Cameras", "NVR Systems", "Video Analytics", "Remote Access"],
-        path: "/enterprise/networkequipment"
+        path: "/others/cctv"
       },
       { 
         name: "Strategic IT Outsourcing", 
@@ -180,8 +180,27 @@ const services: ServiceGroup[] = [
         description: "Managed IT services",
         fullDescription: "Comprehensive IT outsourcing services to optimize your technology operations.",
         features: ["24/7 Support", "Proactive Monitoring", "Security Management", "Compliance"],
-        path: "/enterprise/networkequipment"
+        path: "/others/outsourcing"
       },
+{ 
+  name: "Mobile Callback , SunPage & VOIP Calls", 
+  image: "/images/SunPageVoipCalls.png", 
+  description: "Affordable global call solutions",
+  fullDescription: "Business-grade VOIP and callback services offering high-quality international and local calls with major cost savings.",
+  features: ["International Calls", "Mobile Callback", "PC-to-Phone", "VOIP Services"],
+  path: "/others/mobilecallback-sunpage&voipcalls"
+},
+{ 
+  name: "Telecommunication Peripherals", 
+  image: "/images/TelecommunicationPeripherals.png", 
+  description: "Corporate communication devices",
+  fullDescription: "Enterprise telecommunication equipment including phones, radios, and headsets for efficient business connectivity.",
+  features: ["Fixed-Line Phones", "Radio Systems", "Two-Way Headsets", "Contact Centre Devices"],
+  path: "/others/telecommunicationperipherals"
+},
+
+
+
     ],
   },
 ];

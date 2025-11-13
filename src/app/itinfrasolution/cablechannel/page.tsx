@@ -1,448 +1,551 @@
-"use client";
-
-import React from "react";
-import Image from "next/image";
-
+// src/app/enterprise/cable-channel/page.tsx
+'use client'
+import React from 'react';
 import {
   Box,
   Container,
   Typography,
   Card,
   CardContent,
-  CardHeader,
-  Stack,
-  Divider,
+  Grid as Grid,
   Chip,
+  useTheme,
+  useMediaQuery,
+  Paper,
+  Avatar,
   Button,
-} from "@mui/material";
+  alpha,
+} from '@mui/material';
+import {
+  Cable,
+  Security,
+  Engineering,
+  Storage,
+  Architecture,
+  ArrowForward,
+  CheckCircle,
+  Shield,
+} from '@mui/icons-material';
+import Image from 'next/image';
 
-const PartnerCard: React.FC<{
-  title: string;
-  subtitle?: string;
-  body: string;
-  logoSrc?: string;
-}> = ({ title, subtitle, body, logoSrc }) => {
-  return (
-    <Card 
-      elevation={3} 
-      sx={{ 
-        height: "100%", 
-        borderRadius: 2,
-        transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
-        border: "1px solid",
-        borderColor: "divider",
-        background: "linear-gradient(145deg, #ffffff 0%, #f8fafc 100%)",
-        '&:hover': {
-          transform: "translateY(-6px)",
-          boxShadow: "0 12px 32px rgba(0,0,0,0.15)",
-          borderColor: "primary.light",
-        }
-      }}
-    >
-      <CardHeader
-        title={title}
-        subheader={subtitle}
-        titleTypographyProps={{ 
-          fontWeight: 800,
-          fontSize: "1.3rem",
-          color: "primary.main",
-          letterSpacing: "-0.5px"
-        }}
-        subheaderTypographyProps={{
-          color: "text.secondary",
-          fontSize: "0.95rem",
-          fontWeight: 500
-        }}
-        sx={{ pb: 1 }}
-      />
-      <CardContent sx={{ pt: 0 }}>
-        <Stack spacing={2}>
-          <Typography 
-            variant="body1" 
-            sx={{ 
-              whiteSpace: "pre-line",
-              lineHeight: 1.7,
-              color: "text.primary",
-              fontSize: "0.95rem"
-            }}
-          >
-            {body}
-          </Typography>
-        </Stack>
-      </CardContent>
-    </Card>
-  );
+const images = {
+  hero: '/images/Infrastructure/cablechannelsystem/cablechannel.png',
+  cableTray: '/images/Infrastructure/cablechannelsystem/CablofilWireMeshCable.png',
+  cablofil: '/images/Infrastructure/cablechannelsystem/CablofilSystems.png',
+  panduit: '/images/Infrastructure/cablechannelsystem/Panduitsolution.png',
+  gridrunner: '/images/Infrastructure/cablechannelsystem/GRIDRUNNERSystems.png',
+  fiberrunner: '/images/Infrastructure/cablechannelsystem/fiberrunner.jpg',
+  installation: '/images/Infrastructure/cablechannelsystem/ProfessionalCable.png',
 };
 
-const FeatureCard: React.FC<{
-  title: string;
-  description: string;
-}> = ({ title, description }) => {
+const CableChannelPage: React.FC = () => {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+
+  const services = [
+    {
+      icon: <Engineering sx={{ fontSize: 40 }} />,
+      title: 'Cablofil Systems',
+      description: 'Certified installer for Cablofil wire mesh cable trays with T-Welding technology for safe, durable cable management solutions.',
+      image: images.cablofil
+    },
+    {
+      icon: <Architecture sx={{ fontSize: 40 }} />,
+      title: 'Panduit Solutions',
+      description: 'Global leader in end-to-end network cabling with FIBERRUNNER® and FIBER-DUCT™ routing systems for optimal performance.',
+      image: images.panduit
+    },
+    {
+      icon: <Storage sx={{ fontSize: 40 }} />,
+      title: 'GRIDRUNNER Systems',
+      description: 'Underfloor cable routing system designed for data centers to manage network data and power cabling with improved reliability.',
+      image: images.gridrunner
+    },
+    {
+      icon: <Cable sx={{ fontSize: 40 }} />,
+      title: 'Traditional Cable Trays',
+      description: 'Perforated cable tray and runway systems for serial protection and EMI separation in various industrial applications.',
+      image: images.cableTray
+    }
+  ];
+
+  const cablofilFeatures = [
+    'T-Welding Technology',
+    'No Sharp Edges',
+    'High Load Capacity (2m span)',
+    'EZ Fast Deployment System',
+    'Cost-Effective Installation',
+    'Durable Wire Mesh Design',
+    'Safe Cable Protection',
+    'Global Industry Preference'
+  ];
+
+  const panduitFeatures = [
+    'FIBERRUNNER® Routing Systems',
+    'FIBER-DUCT™ Solutions',
+    'GRIDRUNNER™ Underfloor System',
+    'End-to-End Infrastructure',
+    'Fiber Optic Protection',
+    'Copper Cabling Management',
+    'Improved Reliability',
+    'Increased Safety Standards'
+  ];
+
+  const benefits = [
+    'EMI Protection',
+    'Bandwidth Optimization',
+    'Easy Move-Add-Change',
+    'Optimal Route Planning',
+    'Better Earthing Continuity',
+    'Modular System Design',
+    'Enhanced Transmission',
+    'Serial Cable Protection'
+  ];
+
+  const industries = [
+    'Manufacturing',
+    'Oil & Gas',
+    'Data Centres',
+    'Production Plants',
+    'Enterprise Networks',
+    'Telecommunications'
+  ];
+
   return (
-    <Card 
-      sx={{ 
-        height: "100%",
-        borderRadius: 2,
-        background: "linear-gradient(135deg, #ffffff 0%, #f1f8ff 100%)",
-        border: "1px solid",
-        borderColor: "primary.50",
-        boxShadow: "0 2px 12px rgba(25, 118, 210, 0.08)",
-        transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
-        position: "relative",
-        overflow: "hidden",
-        '&:before': {
-          content: '""',
-          position: "absolute",
-          top: 0,
-          left: 0,
-          right: 0,
-          height: 3,
-          background: "linear-gradient(90deg, #1976d2 0%, #42a5f5 100%)"
-        },
-        '&:hover': {
-          transform: "translateY(-4px)",
-          boxShadow: "0 8px 24px rgba(25, 118, 210, 0.15)",
-        }
-      }}
-    >
-      <CardContent sx={{ p: 3.5 }}>
-        <Typography 
-          fontWeight={800} 
-          fontSize="1.15rem"
-          gutterBottom
-          color="primary.dark"
-          letterSpacing="-0.3px"
-        >
-          {title}
-        </Typography>
-        <Typography variant="body2" sx={{ lineHeight: 1.7, color: "text.secondary" }}>
-          {description}
-        </Typography>
-      </CardContent>
-    </Card>
-  );
-};
-
-export default function PowerProtectionPage(): React.JSX.Element {
-  return (
-    <Box 
-      component="main" 
-      sx={{ 
-        bgcolor: "background.default", 
-        py: { xs: 4, md: 8 },
-        mt: { xs: 8, md: 10 },
-        minHeight: "100vh",
-        background: "linear-gradient(135deg, #fafbfd 0%, #f5f7fa 100%)"
-      }}
-    >
-      <Container maxWidth="lg">
-        {/* Hero Section */}
-        <Box
-          sx={{
-            display: "flex",
-            flexDirection: { xs: "column", md: "row" },
-            gap: 6,
-            alignItems: "center",
-            mb: 10,
-          }}
-        >
-          <Box sx={{ flex: 1 }}>
-            <Typography 
-              variant="h2" 
-              component="h1" 
-              gutterBottom
-              sx={{
-                fontWeight: 900,
-                background: "linear-gradient(135deg, #1976d2 0%, #004ba0 100%)",
-                backgroundClip: "text",
-                WebkitBackgroundClip: "text",
-                color: "transparent",
-                fontSize: { xs: "2.75rem", md: "3.5rem" },
-                lineHeight: 1.1,
-                letterSpacing: "-1.5px",
-                mb: 3
-              }}
-            >
-              Power Protection, Enclosure & Racking Systems
-            </Typography>
-            <Typography 
-              variant="h6" 
-              color="text.secondary" 
-              paragraph
-              sx={{ 
-                lineHeight: 1.8,
-                fontSize: { xs: "1.05rem", md: "1.15rem" },
-                fontWeight: 400,
-                mb: 4
-              }}
-            >
-              Appropriate cable runways are necessary for serial protection of
-              network cables and separation from EMI-sensitive materials — this
-              directly affects bandwidth and transmission performance.
-            </Typography>
-
-            <Stack 
-              direction={{ xs: "column", sm: "row" }} 
-              spacing={2}
-              sx={{ mb: 4 }}
-            >
-              <Chip 
-                label="Cabling Management" 
-                variant="filled"
-                sx={{ 
-                  bgcolor: "primary.main",
-                  color: "white",
-                  fontWeight: 700,
-                  fontSize: "0.9rem",
-                  height: 36,
-                  px: 1
-                }} 
-              />
-              <Chip 
-                label="Data Center" 
-                variant="filled"
-                sx={{ 
-                  bgcolor: "secondary.main",
-                  color: "white",
-                  fontWeight: 700,
-                  fontSize: "0.9rem",
-                  height: 36,
-                  px: 1
-                }} 
-              />
-              <Chip 
-                label="Industrial" 
-                variant="filled"
-                sx={{ 
-                  bgcolor: "success.dark",
-                  color: "white",
-                  fontWeight: 700,
-                  fontSize: "0.9rem",
-                  height: 36,
-                  px: 1
-                }} 
-              />
-            </Stack>
-          </Box>
-
-      <Box sx={{ 
-  width: { xs: "100%", md: 420 },
-  flexShrink: 0
-}}>
-  <Box
-    sx={{
-      borderRadius: 3,
-      overflow: "hidden",
-      boxShadow: "0 8px 32px rgba(25, 118, 210, 0.15)",
-      border: "1px solid",
-      borderColor: "primary.100",
-      position: "relative",
-      height: { xs: 280, md: 340 },
-    }}
-  >
-    <Image
-      src="/images/Infrastructure/cablechannel.png" // ← Replace with your actual image path
-      alt="Power Protection Systems"
-      fill // fills the entire box
-      style={{
-        objectFit: "cover",
-        objectPosition: "center",
-      }}
-      priority
-    />
-  </Box>
-</Box>
-        </Box>
-
-        {/* Main Content */}
-        <Box sx={{ width: "100%" }}>
-          <Box
-            sx={{
-              display: "flex",
-              flexDirection: { xs: "column", lg: "row" },
-              gap: 4,
-              mb: 8
-            }}
-          >
-            {/* Left Column - Main Content */}
-            <Box sx={{ flex: 1 }}>
-              <Card 
-                elevation={2}
+    <Box sx={{ bgcolor: 'background.default', minHeight: '100vh', overflow: 'hidden' }}>
+      {/* Hero Section with Background */}
+      <Box
+        sx={{
+          background: `linear-gradient(135deg, ${alpha(theme.palette.primary.main, 0.1)} 0%, ${alpha(theme.palette.secondary.main, 0.1)} 100%)`,
+          py: 12,
+          position: 'relative',
+        }}
+      >
+        <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 1 }}>
+          <Grid container spacing={4} alignItems="center">
+            <Grid size={{ xs: 12, md: 6 }}>
+              <Typography
+                variant="h1"
+                component="h1"
+                gutterBottom
                 sx={{
-                  borderRadius: 3,
-                  overflow: "hidden",
-                  border: "1px solid",
-                  borderColor: "divider",
-                  background: "linear-gradient(145deg, #ffffff 0%, #fafbfd 100%)"
+                  fontWeight: 800,
+                  fontSize: isMobile ? '2.5rem' : '3.5rem',
+                  lineHeight: 1.2,
+                  mb: 3,
                 }}
               >
-                <CardContent sx={{ p: 4.5 }}>
-                  <Typography 
-                    variant="h4" 
-                    gutterBottom
-                    sx={{ 
-                      fontWeight: 800,
-                      color: "primary.dark",
-                      mb: 4,
-                      letterSpacing: "-0.5px"
-                    }}
-                  >
-                    Cable Runways & Modular Systems
-                  </Typography>
-
-                  <Typography 
-                    paragraph 
-                    sx={{ 
-                      fontSize: "1.05rem",
-                      lineHeight: 1.8,
-                      mb: 3.5,
-                      color: "text.primary"
-                    }}
-                  >
-                    Appropriate modular systems allow move, add and change to the
-                    system — empowering user choice in selecting the optimum route
-                    plan and providing better earthing continuity for proper cable
-                    management.
-                  </Typography>
-
-                  <Typography 
-                    paragraph 
-                    sx={{ 
-                      fontSize: "1.05rem",
-                      lineHeight: 1.8,
-                      mb: 4.5
-                    }}
-                  >
-                    Along with traditional perforated cable tray and runways,
-                    Itonus Service is a certified installer and partner of
-                    Cablofil systems and Panduit.
-                  </Typography>
-
-                  <Divider sx={{ my: 5, borderColor: "divider", opacity: 0.6 }} />
-
-                  <Typography 
-                    variant="h5" 
-                    gutterBottom
-                    sx={{ 
-                      fontWeight: 800,
-                      color: "primary.dark",
-                      mb: 3.5,
-                      letterSpacing: "-0.3px"
-                    }}
-                  >
-                    Where these systems are used
-                  </Typography>
-                  <Typography 
-                    paragraph 
-                    sx={{ 
-                      fontSize: "1.05rem",
-                      lineHeight: 1.8
-                    }}
-                  >
-                    Cablofil is used widely in Manufacturing, Oil & Gas,
-                    Consumable Production plants and Data Centres. Panduit
-                    provides routing and protection systems for fiber optic and
-                    high‑performance copper cabling, including underfloor and
-                    dedicated routing pathways.
-                  </Typography>
-                </CardContent>
-              </Card>
-            </Box>
-
-            {/* Right Column - Partner Cards */}
-            <Box sx={{ 
-              width: { xs: "100%", lg: 420 },
-              flexShrink: 0
-            }}>
-              <Stack spacing={3.5}>
-                <PartnerCard
-                  title="Cablofil"
-                  subtitle="Wire Mesh Cable Tray — EZ System"
-                  logoSrc="/images/cablofil-logo.png"
-                  body={`Cablofil is a global choice for a simple and durable wire mesh cable tray. Their patented T‑Welding method removes sharp edges, protecting installers and preventing cable damage. The EZ system enables fast deployment — ceiling mounts to underfloor support trays — and high load capacity at 2m span that can reduce bracket and fixing costs.`}
-                />
-
-                <PartnerCard
-                  title="Panduit"
-                  subtitle="FIBERRUNNER® · FIBER‑DUCT™ · GRIDRUNNER™"
-                  logoSrc="/images/panduit-logo.png"
-                  body={`Panduit is a leader in end-to-end network cabling and facility infrastructure. Offerings include FIBERRUNNER and FIBER-DUCT routing systems for fiber and copper segregation and GRIDRUNNER underfloor routing for raised-floor data centre cabling management and improved safety.`}
-                />
-              </Stack>
-            </Box>
-          </Box>
-
-          {/* Features Section */}
-          <Box sx={{ mb: 8 }}>
-            <Card 
-              elevation={0} 
-              sx={{ 
-                bgcolor: "transparent",
-                mb: 5
-              }}
-            >
-              <CardContent sx={{ p: 0 }}>
-                <Typography 
-                  variant="h4" 
-                  gutterBottom
-                  sx={{ 
-                    fontWeight: 800,
-                    color: "primary.dark",
-                    textAlign: "center",
-                    mb: 6,
-                    letterSpacing: "-0.5px"
+                Cable Channel{' '}
+                <Box
+                  component="span"
+                  sx={{
+                    background: `linear-gradient(45deg, ${theme.palette.primary.main}, ${theme.palette.secondary.main})`,
+                    backgroundClip: 'text',
+                    WebkitBackgroundClip: 'text',
+                    color: 'transparent',
                   }}
                 >
-                  Why choose structured cable routing?
-                </Typography>
+                  Systems
+                </Box>
+              </Typography>
+              
+              <Typography variant="h6" sx={{ mb: 4, color: 'text.secondary', lineHeight: 1.6 }}>
+                Advanced cable management solutions with proper runway systems for optimal network performance, 
+                EMI protection, and seamless infrastructure scalability.
+              </Typography>
+            </Grid>
+            
+            <Grid size={{ xs: 12, md: 6 }}>
+              <Box
+                sx={{
+                  position: 'relative',
+                  height: 400,
+                  borderRadius: 4,
+                  overflow: 'hidden',
+                  boxShadow: '0 20px 40px rgba(0,0,0,0.1)',
+                  bgcolor: 'grey.100',
+                }}
+              >
+                <Image
+                  src={images.hero}
+                  alt="Cable Channel Systems"
+                  fill
+                  style={{ objectFit: 'cover' }}
+                  priority
+                />
+              </Box>
+            </Grid>
+          </Grid>
+        </Container>
+      </Box>
 
+      {/* Main Content Section */}
+      <Container maxWidth="lg" sx={{ py: 8 }}>
+        <Grid container spacing={6}>
+          {/* Left Column - Main Description */}
+          <Grid size={{ xs: 12, lg: 8 }}>
+            <Box sx={{ mb: 6 }}>
+              <Typography
+                variant="h3"
+                component="h2"
+                gutterBottom
+                sx={{ 
+                  fontWeight: 700, 
+                  color: 'text.primary',
+                  mb: 3
+                }}
+              >
+                Professional Cable Management Solutions
+              </Typography>
+              
+              <Box sx={{ mb: 4 }}>
                 <Box
                   sx={{
-                    display: "flex",
-                    flexDirection: { xs: "column", md: "row" },
-                    gap: 3
+                    position: 'relative',
+                    height: 300,
+                    borderRadius: 3,
+                    overflow: 'hidden',
+                    mb: 4,
+                    boxShadow: '0 10px 30px rgba(0,0,0,0.1)',
                   }}
                 >
-                  <Box sx={{ flex: 1 }}>
-                    <FeatureCard
-                      title="Reliability"
-                      description="Segregation from EMI-sensitive equipment protects transmission integrity and ensures consistent network performance in demanding environments."
-                    />
-                  </Box>
-                  <Box sx={{ flex: 1 }}>
-                    <FeatureCard
-                      title="Serviceability"
-                      description="Modular systems allow quick changes, additions and re-routing with minimal downtime, reducing maintenance costs and improving operational efficiency."
-                    />
-                  </Box>
-                  <Box sx={{ flex: 1 }}>
-                    <FeatureCard
-                      title="Cost Efficiency"
-                      description="Reduced need for extra fixings and support when using high-load capacity systems like Cablofil, leading to significant savings in installation and maintenance."
-                    />
-                  </Box>
+                  <Image
+                    src={images.installation}
+                    alt="Cable Management Installation"
+                    fill
+                    style={{ objectFit: 'cover' }}
+                  />
                 </Box>
-              </CardContent>
-            </Card>
-          </Box>
+              </Box>
 
-          {/* CTA Section */}
-          <Box sx={{ mb: 4 }}>
-            <Card 
-              elevation={4}
-              sx={{
-                borderRadius: 3,
-                background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
-                color: "white",
-                border: "none",
-                overflow: "hidden",
-                position: "relative"
-              }}
-            >
-            </Card>
-          </Box>
-        </Box>
+              <Typography variant="h6" paragraph sx={{ lineHeight: 1.8, fontSize: '1.1rem', mb: 3 }}>
+                Appropriate cable runways are necessary for serial protection of network cables as well as 
+                separation from other EMI-sensitive materials, affecting bandwidth and transmission performance. 
+                Suitable modular systems allow move, add, and change to the system, empowering user choice in 
+                selecting optimum route plan and better earthing continuity for appropriate cabling management.
+              </Typography>
+
+              {/* Cablofil Section */}
+              <Box sx={{ mb: 6 }}>
+                <Typography variant="h4" gutterBottom sx={{ fontWeight: 600, mb: 3 }}>
+                  Cablofil Wire Mesh Cable Trays
+                </Typography>
+                <Grid container spacing={4} alignItems="center">
+                  <Grid size={{ xs: 12, md: 6 }}>
+                    <Typography variant="body1" paragraph sx={{ lineHeight: 1.7 }}>
+                      Itonus Services is the certified installer and partner of Cablofil systems. Cablofil has 
+                      been one of the preferred choices around the globe by organizations for its simple and 
+                      durable solution of wire mesh cable tray.
+                    </Typography>
+                    <Typography variant="body1" paragraph sx={{ lineHeight: 1.7 }}>
+                      Cablofil deploys a special method of T-Welding the lateral wires to the top wires that 
+                      eliminates the risk of damaging cables upon laying and at the same time protects installers 
+                      from sharp edges, a patented concept unique to Cablofil.
+                    </Typography>
+                    <Box sx={{ display: 'flex', gap: 1, flexWrap: 'wrap', mb: 2 }}>
+                      {['Manufacturing', 'Oil & Gas', 'Data Centres', 'Production Plants'].map((industry) => (
+                        <Chip 
+                          key={industry}
+                          label={industry} 
+                          color="primary" 
+                          variant="outlined"
+                          size="small"
+                        />
+                      ))}
+                    </Box>
+                  </Grid>
+                  <Grid size={{ xs: 12, md: 6 }}>
+                    <Box
+                      sx={{
+                        position: 'relative',
+                        height: 250,
+                        borderRadius: 2,
+                        overflow: 'hidden',
+                        boxShadow: '0 8px 24px rgba(0,0,0,0.1)',
+                      }}
+                    >
+                      <Image
+                        src={images.cablofil}
+                        alt="Cablofil Cable Tray System"
+                        fill
+                        style={{ objectFit: 'cover' }}
+                      />
+                    </Box>
+                  </Grid>
+                </Grid>
+
+                {/* Cablofil Features */}
+                <Paper
+                  elevation={2}
+                  sx={{
+                    p: 4,
+                    borderRadius: 3,
+                    mt: 3,
+                    background: `linear-gradient(135deg, ${alpha(theme.palette.primary.main, 0.05)} 0%, ${alpha(theme.palette.secondary.main, 0.05)} 100%)`,
+                  }}
+                >
+                  <Typography variant="h5" gutterBottom sx={{ fontWeight: 600, mb: 3 }}>
+                    Cablofil System Advantages
+                  </Typography>
+                  <Grid container spacing={2}>
+                    {cablofilFeatures.map((feature, index) => (
+                      <Grid size={{ xs: 12, sm: 6 }} key={index}>
+                        <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
+                          <CheckCircle 
+                            sx={{ 
+                              color: 'primary.main', 
+                              mr: 2, 
+                              fontSize: 24 
+                            }} 
+                          />
+                          <Typography variant="body1" sx={{ fontWeight: 500 }}>
+                            {feature}
+                          </Typography>
+                        </Box>
+                      </Grid>
+                    ))}
+                  </Grid>
+                </Paper>
+              </Box>
+
+              {/* Panduit Section */}
+              <Box sx={{ mb: 6 }}>
+                <Typography variant="h4" gutterBottom sx={{ fontWeight: 600, mb: 3 }}>
+                  Panduit Infrastructure Solutions
+                </Typography>
+                <Grid container spacing={4} alignItems="center">
+                  <Grid size={{ xs: 12, md: 6 }}>
+                    <Box
+                      sx={{
+                        position: 'relative',
+                        height: 250,
+                        borderRadius: 2,
+                        overflow: 'hidden',
+                        boxShadow: '0 8px 24px rgba(0,0,0,0.1)',
+                      }}
+                    >
+                      <Image
+                        src={images.panduit}
+                        alt="Panduit Cable Management"
+                        fill
+                        style={{ objectFit: 'cover' }}
+                      />
+                    </Box>
+                  </Grid>
+                  <Grid size={{ xs: 12, md: 6 }}>
+                    <Typography variant="body1" paragraph sx={{ lineHeight: 1.7 }}>
+                      Panduit is a global leader in providing end-to-end network cabling and facility 
+                      infrastructure, offering cable management and routing solution in the form of its 
+                      unique FIBERRUNNER® and FIBER-DUCT™ Routing Systems.
+                    </Typography>
+                    <Typography variant="body1" paragraph sx={{ lineHeight: 1.7 }}>
+                      These systems are designed to segregate, route and protect fiber optic and high 
+                      performance copper cabling with improved reliability and increased safety.
+                    </Typography>
+                  </Grid>
+                </Grid>
+
+                {/* GRIDRUNNER Specific Section */}
+                <Box sx={{ mt: 4 }}>
+                  <Typography variant="h5" gutterBottom sx={{ fontWeight: 600, mb: 2 }}>
+                    GRIDRUNNER™ Underfloor System
+                  </Typography>
+                  <Grid container spacing={3} alignItems="center">
+                    <Grid size={{ xs: 12, md: 8 }}>
+                      <Typography variant="body1" sx={{ lineHeight: 1.7 }}>
+                        A wire basket pathway underfloor system that is designed to route and manage network 
+                        data and power cabling beneath the raised floor in a data center with improved 
+                        reliability and increased safety.
+                      </Typography>
+                    </Grid>
+                    <Grid size={{ xs: 12, md: 4 }}>
+                   
+                    </Grid>
+                  </Grid>
+                </Box>
+
+                {/* Panduit Features */}
+                <Paper
+                  elevation={2}
+                  sx={{
+                    p: 4,
+                    borderRadius: 3,
+                    mt: 3,
+                    background: `linear-gradient(135deg, ${alpha(theme.palette.secondary.main, 0.05)} 0%, ${alpha(theme.palette.primary.main, 0.05)} 100%)`,
+                  }}
+                >
+                  <Typography variant="h5" gutterBottom sx={{ fontWeight: 600, mb: 3 }}>
+                    Panduit System Features
+                  </Typography>
+                  <Grid container spacing={2}>
+                    {panduitFeatures.map((feature, index) => (
+                      <Grid size={{ xs: 12, sm: 6 }} key={index}>
+                        <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
+                          <Shield 
+                            sx={{ 
+                              color: 'secondary.main', 
+                              mr: 2, 
+                              fontSize: 24 
+                            }} 
+                          />
+                          <Typography variant="body1" sx={{ fontWeight: 500 }}>
+                            {feature}
+                          </Typography>
+                        </Box>
+                      </Grid>
+                    ))}
+                  </Grid>
+                </Paper>
+              </Box>
+
+              {/* Benefits Grid */}
+              <Box sx={{ mb: 6 }}>
+                <Typography variant="h4" gutterBottom sx={{ fontWeight: 600, mb: 3 }}>
+                  System Benefits
+                </Typography>
+                <Grid container spacing={3}>
+                  {benefits.map((benefit, index) => (
+                    <Grid size={{ xs: 12, sm: 6, md: 4 }} key={index}>
+                      <Card 
+                        elevation={1}
+                        sx={{
+                          height: '100%',
+                          p: 2,
+                          borderRadius: 2,
+                          textAlign: 'center',
+                          transition: 'all 0.3s ease',
+                          '&:hover': {
+                            transform: 'translateY(-4px)',
+                            boxShadow: '0 8px 24px rgba(0,0,0,0.12)',
+                          },
+                        }}
+                      >
+                        <Security 
+                          sx={{ 
+                            fontSize: 40, 
+                            color: 'primary.main',
+                            mb: 1 
+                          }} 
+                        />
+                        <Typography variant="body1" sx={{ fontWeight: 500 }}>
+                          {benefit}
+                        </Typography>
+                      </Card>
+                    </Grid>
+                  ))}
+                </Grid>
+              </Box>
+            </Box>
+          </Grid>
+
+          {/* Right Column - Services */}
+          <Grid size={{ xs: 12, lg: 4 }}>
+            <Box sx={{ position: isMobile ? 'static' : 'sticky', top: 100 }}>
+              <Paper
+                elevation={2}
+                sx={{
+                  p: 4,
+                  borderRadius: 3,
+                  background: `linear-gradient(135deg, ${alpha(theme.palette.primary.main, 0.05)} 0%, ${alpha(theme.palette.secondary.main, 0.05)} 100%)`,
+                  mb: 4,
+                }}
+              >
+                <Typography
+                  variant="h4"
+                  component="h3"
+                  gutterBottom
+                  sx={{ fontWeight: 700, mb: 3, textAlign: 'center' }}
+                >
+                  Our Solutions
+                </Typography>
+                
+                <Grid container spacing={3}>
+                  {services.map((service, index) => (
+                    <Grid size={12} key={index}>
+                      <Card 
+                        elevation={2}
+                        sx={{
+                          height: '100%',
+                          transition: 'all 0.3s ease-in-out',
+                          borderRadius: 3,
+                          overflow: 'hidden',
+                          '&:hover': {
+                            transform: 'translateY(-8px)',
+                            boxShadow: '0 20px 40px rgba(0,0,0,0.15)',
+                          },
+                        }}
+                      >
+                        <Box sx={{ position: 'relative', height: 120 }}>
+                          <Image
+                            src={service.image}
+                            alt={service.title}
+                            fill
+                            style={{ objectFit: 'cover' }}
+                          />
+                        </Box>
+                        <CardContent sx={{ p: 3 }}>
+                          <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
+                            <Avatar
+                              sx={{
+                                bgcolor: 'primary.main',
+                                mr: 2,
+                                width: 50,
+                                height: 50,
+                                boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
+                              }}
+                            >
+                              {service.icon}
+                            </Avatar>
+                            <Typography variant="h6" component="h4" sx={{ fontWeight: 600 }}>
+                              {service.title}
+                            </Typography>
+                          </Box>
+                          <Typography variant="body2" color="text.secondary" sx={{ lineHeight: 1.6 }}>
+                            {service.description}
+                          </Typography>
+                        </CardContent>
+                      </Card>
+                    </Grid>
+                  ))}
+                </Grid>
+              </Paper>
+
+              {/* Industries Served */}
+              <Paper
+                elevation={2}
+                sx={{
+                  p: 4,
+                  borderRadius: 3,
+                  mb: 4,
+                  background: `linear-gradient(135deg, ${alpha(theme.palette.secondary.main, 0.05)} 0%, ${alpha(theme.palette.primary.main, 0.05)} 100%)`,
+                }}
+              >
+                <Typography variant="h5" gutterBottom sx={{ fontWeight: 600, mb: 3, textAlign: 'center' }}>
+                  Industries Served
+                </Typography>
+                <Grid container spacing={1}>
+                  {industries.map((industry, index) => (
+                    <Grid size={{ xs: 6 }} key={index}>
+                      <Chip
+                        label={industry}
+                        variant="outlined"
+                        sx={{
+                          width: '100%',
+                          mb: 1,
+                          fontWeight: 500,
+                        }}
+                      />
+                    </Grid>
+                  ))}
+                </Grid>
+              </Paper>
+
+            </Box>
+          </Grid>
+        </Grid>
       </Container>
     </Box>
   );
-}
+};
+
+export default CableChannelPage;

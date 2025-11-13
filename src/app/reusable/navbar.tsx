@@ -51,11 +51,11 @@ const dropdowns: { [key: string]: MenuOption[] } = {
   ],
   Others: [
     { label: "Audio Visual Systems & Conferencing", href: "/others/AudioVisualSystems" },
-    { label: "Security Access Systems", href: "/others/securityaccess" },
+    { label: "Security Access Systems", href: "/others/securityaccesssystems" },
     { label: "Security Surveillance Systems (CCTV)", href: "/others/cctv" },
     { label: "Strategic IT Outsourcing", href: "/others/outsourcing" },
-    { label: "SunPage International Call, Mobile Callback and VOIP Calls", href: "/others/voip" },
-    { label: "Telecommunication Peripherals", href: "/others/peripherals" },
+    { label: "Mobile Callback, Sunpage and Voip Calls", href: "/others/mobilecallback-sunpage&voipcalls" },
+    { label: "Telecommunication Peripherals", href: "/others/telecommunicationperipherals" },
   ],
 };
 
